@@ -4,6 +4,7 @@ import { ShieldCheck, Truck, RefreshCw, Sparkles, Clock, HeartHandshake, ArrowRi
 import { useStore } from '../../lib/store';
 import { useLanguage } from '../../context/LanguageContext';
 import { ProductCard } from '../../components/product/ProductCard';
+import { Dairy3DBackground } from '../../components/common/Dairy3DBackground';
 
 export const HomePage: React.FC = () => {
   const { products, settings } = useStore();
@@ -13,15 +14,18 @@ export const HomePage: React.FC = () => {
 
   return (
     <div>
-      {/* Hero Section */}
+      {/* Hero Section with Interactive 3D Dairy Background */}
       <section
         style={{
+          position: 'relative',
+          overflow: 'hidden',
           background: 'linear-gradient(180deg, #FFFFFF 0%, #FFF8E7 100%)',
           padding: '4rem 0 5rem 0',
           borderBottom: '1px solid #F5E8C7',
         }}
       >
-        <div className="container">
+        <Dairy3DBackground density={30} />
+        <div className="container" style={{ position: 'relative', zIndex: 1 }}>
           <div
             style={{
               display: 'grid',
